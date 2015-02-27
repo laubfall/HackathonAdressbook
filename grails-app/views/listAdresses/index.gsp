@@ -10,9 +10,10 @@
 </head>
 
 <body ng-controller="AddressListCtrl">
+	{{data}}
 	<ul>
-		<li ng-repeat="address in addresses"><span>{{address.name}}</span>
-			<p>{{address.surname}}</p></li>
+		<li ng-repeat="address in addresses"><span>{{addresses.address.name}}</span>
+			<p>{{addresses.address.surname}}</p></li>
 	</ul>
 
 </body>
