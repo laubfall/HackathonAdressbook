@@ -1,5 +1,8 @@
 package hackathonaddressbuch
 
+import grails.rest.Resource
+
+@Resource(uri='/addresses', formats=['json', 'xml'])
 class Adress {
 	String name;
 	

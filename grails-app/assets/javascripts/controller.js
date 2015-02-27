@@ -8,16 +8,9 @@ addrApp.controller('AddressListCtrl', function ($scope, $http, Grails) {
         $scope.status = status;
         $scope.addresses = data;
         $scope.data = data;
-      });
-//	$scope.addresses = result;
-//	  $scope.addresses2 = [
-//	    {'name': 'Nexus S',
-//	     'surename': 'Fast just got faster with Nexus S.'},
-//	    {'name': 'Motorola XOOM™ with Wi-Fi',
-//	     'surename': 'The Next, Next Generation tablet.'},
-//	    {'name': 'MOTOROLA XOOM™',
-//	     'surename': 'The Next, Next Generation tablet.'}
-//	  ];
-//	debugger;
-	
+        
+        $scope.update = function(adress) {
+        	$http.post('/HackathonAddressbuch/addresses', angular.toJson(adress));
+        }
+      });	
 });
