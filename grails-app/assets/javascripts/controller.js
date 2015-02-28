@@ -10,7 +10,7 @@ addrApp.controller('AddressListCtrl', function ($scope, $http, Grails) {
         $scope.data = data;
         
         $scope.update = function(adress) {
-        	$http.post('/HackathonAddressbuch/addresses', angular.toJson(adress));
+        	$http.post('/HackathonAddressbuch/editCreate', angular.toJson(adress));
         }
       });	
 });
