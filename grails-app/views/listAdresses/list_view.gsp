@@ -1,34 +1,4 @@
 
-	
-	
-		<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="index.html">
-					<i class="glyphicon glyphicon-book"></i>
-					Adressbuch
-				</a>
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<form class="navbar-form navbar-right">
-					<div class="form-group">
-						<input type="text" placeholder="Suchbegriff" class="form-control">
-					</div>
-					<button type="submit" class="btn btn-primary">
-						<i class="glyphicon glyphicon-search"></i>
-						Suchen
-					</button>
-				</form>
-			</div>
-			<!--/.navbar-collapse -->
-		</div>
-	</nav>
 
 	<!-- begin: content container -->
 	<div class="container">
@@ -49,7 +19,7 @@
 				</thead>
 				<tbody ng-repeat="adress in addresses">
 					<tr>
-						<th scope="row">1</th>
+						<th scope="row">{{adress.id}}</th>
 						<td>{{adress.name}}</td>
 						<td>{{adress.surname}}</td>
 						<td>{{adress.city}}</td>
@@ -57,7 +27,7 @@
 						<td class="actions">
 							<a href="#/adressDetail/{{adress.id}}" title="Details anzeigen" class="glyphicon glyphicon-eye-open"></a>
 							<a href="#/editCreate/{{adress.id}}" title="Bearbeiten"><i class="glyphicon glyphicon-edit"></i></a>
-							<a href="deleted.html" title="Löschen"><i class="glyphicon glyphicon-trash"></i></a>
+							<a ng-click="deleteFnc(adress)" title="Löschen"><i class="glyphicon glyphicon-trash"></i></a>
 						</td>
 					</tr>
 				</tbody>

@@ -33,4 +33,12 @@ class EditCreateController {
 			json { render a as JSON}
 		}
 	}
+	
+	@Transactional
+	def delete(Adress a) {
+		a.delete();
+		render(contentType: "application/json") {
+			delete result: true, entityid: a.id
+		}
+	}
 }

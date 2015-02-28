@@ -10,7 +10,9 @@ class Adress {
 	
 	String street;
 	
-	String plz;
+	int streetNr;
+	
+	int plz;
 	
 	String city;
 	
