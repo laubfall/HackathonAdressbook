@@ -13,6 +13,9 @@ addrApp.config([ '$routeProvider', function($routeProvider) {
 	}).when('/editCreate', {
 		templateUrl : '/HackathonAddressbuch/editCreate/detail_view',
 		controller : 'EditCreateCtrl'
+	}).when('/adressDetail/:adressId', {
+		templateUrl : '/HackathonAddressbuch/editCreate/edit_view',
+		controller : 'EditCreateDetailCtrl'
 	})
 	.otherwise({
 		redirectTo : '/addresses'
@@ -20,14 +23,14 @@ addrApp.config([ '$routeProvider', function($routeProvider) {
 } ]);
 
 addrApp.controller('AddressListCtrl', function($scope, $http, Grails) {
-	var result = $http.get('/HackathonAddressbuch/listAdresses/list').success(
+	$http.get('/HackathonAddressbuch/listAdresses/list').success(
 			function(data, status) {
 				$scope.status = status;
 				$scope.addresses = data;
 			});
 });
 
-addrApp.controller('EditCreateCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+addrApp.controller('EditCreateCtrl', ['$scope', '$http', '$routeParams', '$location', function($scope, $http, $routeParams, $location) {
 	if($routeParams.adressId) {
 		$http.get('/HackathonAddressbuch/editCreate/show/' + $routeParams.adressId).success(
 				function(data, status) {
@@ -37,6 +40,18 @@ addrApp.controller('EditCreateCtrl', ['$scope', '$http', '$routeParams', functio
 	}
 	
 	$scope.update = function(adress) {
+		if(adress.$invalid) {
+			return;
+		}
 		$http.post('/HackathonAddressbuch/editCreate/save/', angular.toJson(adress));
+		$location.url('/adresses')
 	}
 }]);
+
+addrApp.controller('EditCreateDetailCtrl', function($scope, $routeParams, $http) {
+	$http.get('/HackathonAddressbuch/editCreate/show/' + $routeParams.adressId).success(
+			function(data, status) {
+				$scope.status = status;
+				$scope.adress = data;
+			});
+});

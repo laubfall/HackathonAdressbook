@@ -15,15 +15,15 @@ class EditCreateController {
 		
 	}
 	
+	def edit_view() {
+		
+	}
+	
 	def show() {
 		def a = Adress.get(params.id);
 		withFormat {
 			json { render a as JSON}
 		}
-
-//		render (contentType: "application/json"){
-//			adress name: a.name, surname: a.surname, id: a.id
-//		}
 	}
 	
 	@Transactional
