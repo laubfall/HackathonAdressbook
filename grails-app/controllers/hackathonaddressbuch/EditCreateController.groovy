@@ -9,4 +9,8 @@ class EditCreateController {
 	def save(Adress adress) {
 		adress.save();
 	}
+	
+	def detail_view() {
+		
+	}
 }

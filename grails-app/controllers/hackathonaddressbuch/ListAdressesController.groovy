@@ -11,9 +11,13 @@ class ListAdressesController {
 		render(contentType: "application/json") {
 			array {
 				for(a in all) {
-						address name: a.name, surname: a.surname
+						address name: a.name, surname: a.surname, id: a.id
 				}
 			}
 		}
+	}
+	
+	def list_view() {
+		
 	}
 }
