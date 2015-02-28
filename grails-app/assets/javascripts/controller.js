@@ -4,7 +4,7 @@
 var addrApp = angular.module('addressbook',['addressbookServices']);
 
 addrApp.controller('AddressListCtrl', function ($scope, $http, Grails) {
-	var result = $http.get('/HackathonAddressbuch/editCreate').success(function(data, status) {
+	var result = $http.get('/HackathonAddressbuch/listAdresses/list').success(function(data, status) {
         $scope.status = status;
         $scope.addresses = data;
         $scope.data = data;
