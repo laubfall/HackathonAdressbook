@@ -10,6 +10,6 @@ class UrlMappings {
         "/"(view:"/index")
         "500"(view:'/error')
 		
-//		"/editCreate"(resouces:'Adress')
+//		"/editCreateAdress"(resouces:'Adress')
 	}
 }
