@@ -4,18 +4,37 @@
 		<!-- begin: content -->
 		<h1>Adresse bearbeiten/hinzufügen</h1>
 		<hr>
-		<form>
+		<div ng-messages="adress.streetN.$error">
+			<div ng-message="required">Feld Straße muss gesetzt sein</div>
+		</div>
+		
+		<div ng-messages="adress.nameN.$error">
+			<div ng-message="required" class="alert alert-info" role="alert">Feld Vorname muss gesetzt sein</div>
+		</div>
+		
+		<div ng-messages="adress.surnameN.$error">
+			<div ng-message="required" class="alert alert-info" role="alert">Feld Name muss gesetzt sein</div>
+		</div>
+		
+		<div ng-messages="adress.plzN.$error">
+			<div ng-message="required">Feld PLZ muss gesetzt sein</div>
+		</div>
+		
+		<div ng-messages="adress.cityN.$error">
+			<div ng-message="required">Feld Ort muss gesetzt sein</div>
+		</div>
+		<form name="adress">
 			<div class="row">
 				<div class="col-sm-6 col-xs-12">
 					<div class="form-group">
 						<label for="vorname">Vorname</label>
-						<input type="text" class="form-control" ng-model="adress.name" id="vorname" placeholder="">
+						<input type="text" class="form-control" ng-model="adress.name" id="vorname" name="nameN" placeholder="" required>
 					</div>
 				</div>
 				<div class="col-sm-6 col-xs-12">
 					<div class="form-group">
 						<label for="nachname">Nachname</label>
-						<input type="text" class="form-control" ng-model="adress.surname" id="nachname" placeholder="">
+						<input type="text" class="form-control" ng-model="adress.surname" id="nachname" name="surnameN" placeholder="" required>
 					</div>
 				</div>
 				<div class="col-xs-9">
