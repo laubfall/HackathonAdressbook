@@ -50,8 +50,9 @@ addrApp.controller('EditCreateCtrl', ['$scope', '$http', '$routeParams', '$locat
 		if(adress.$invalid) {
 			return;
 		}
-		$http.post('/HackathonAddressbuch/editCreate/save/', angular.toJson(adress));
-		$location.url('/adresses')
+		$http.post('/HackathonAddressbuch/editCreate/save/', angular.toJson(adress)).success(function(data, status) {			
+			$location.url('/adresses')
+		});
 	}
 }]);
 

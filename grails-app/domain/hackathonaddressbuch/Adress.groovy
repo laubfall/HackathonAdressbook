@@ -23,4 +23,18 @@ class Adress {
 		// groovy does not complain while saving an entity with empty properties that are non nullable.
 		email nullable: true;
     }
+	
+	
+	static search = {
+		// fields
+		name index: 'tokenized'
+		surname index: 'tokenized'
+		city index: 'tokenized'
+		email index: 'tokenized'
+		plz numeric: 5
+		streetNr numeric: 3
+
+		// support for classBridge
+//		classBridge = ['class': MyClassBridge, params: [myParam: "4"]]
+	}
 }
